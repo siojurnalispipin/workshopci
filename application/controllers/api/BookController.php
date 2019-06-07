@@ -12,6 +12,7 @@ class BookController extends REST_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('Book_model');
     }
 
     public function books_get()
@@ -30,9 +31,36 @@ class BookController extends REST_Controller
         ], 202);
     }
 
-    public function booksmodel_get()
+    public function databooks_get()
     {
+        $books = $this->Book_model->book();
+        $this->response([
+            'status' => true,
+            'data' => $books,
+        ], 202);
+    }
 
+    public function insertbooks_post()
+    {
+        $data = array(
+            'id' => $this->post('id'),
+            'judul' => $this->post('judul'),
+            'deskripsi' => $this->post('deskripsi'),
+            'penulis' => $this->post('penulis'),
+            'rating' => $this->post('rating'),
+        );
+
+        $insert = $this->Book_model->insertBook('book', $data);
+        if ($insert) {
+            $this->response([
+                'status' => true,
+                'data' => $data,
+            ], 202);
+        } else {
+            $this->response([
+                'status' => false,
+            ], 502);
+        }
     }
 
 }
