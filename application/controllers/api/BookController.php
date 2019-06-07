@@ -15,7 +15,7 @@ class BookController extends REST_Controller
         $this->load->model('Book_model');
     }
 
-    public function books_get()
+    public function jsonbooks_get()
     {
         $books = [
             ['idbuku' => 1, 'judul_buku' => 'Buku bahasa Pemrograman Web', 'deskripsi' => 'Membahas tentang pemrograman web dari dasar hingga deploy ke server', 'pengarang' => 'Jhon Sandoro', 'rating' => 5],
@@ -31,7 +31,7 @@ class BookController extends REST_Controller
         ], 202);
     }
 
-    public function databooks_get()
+    public function books_get()
     {
         $books = $this->Book_model->book();
         $this->response([
@@ -40,7 +40,7 @@ class BookController extends REST_Controller
         ], 202);
     }
 
-    public function insertbooks_post()
+    public function addbooks_post()
     {
         $data = array(
             'id' => $this->post('id'),
@@ -55,6 +55,45 @@ class BookController extends REST_Controller
             $this->response([
                 'status' => true,
                 'data' => $data,
+            ], 202);
+        } else {
+            $this->response([
+                'status' => false,
+            ], 502);
+        }
+    }
+
+    public function updatebooks_put()
+    {
+        $id = $this->put('id');
+        $data = array(
+            'judul' => $this->put('judul'),
+            'deskripsi' => $this->put('deskripsi'),
+            'penulis' => $this->put('penulis'),
+            'rating' => $this->put('rating'),
+        );
+        $this->db->where('id', $id);
+        $put = $this->Book_model->updateBook($data);
+        if ($put) {
+            $this->response([
+                'status' => true,
+                'data' => $data,
+            ], 202);
+        } else {
+            $this->response([
+                'status' => false,
+            ], 502);
+        }
+    }
+
+    public function deletebooks_delete()
+    {
+        $id = (int) $this->delete('id');
+        $response = $this->Book_Model->deleteBook($id);
+        if ($response) {
+            $this->response([
+                'status' => true,
+                'data' => $id,
             ], 202);
         } else {
             $this->response([

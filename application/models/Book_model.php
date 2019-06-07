@@ -21,4 +21,16 @@ class Book_model extends CI_Model
         return $query;
     }
 
+    public function updateBook($data)
+    {
+        $query = $this->db->update('book', $data);
+        return $query;
+    }
+
+    public function deleteBook($id)
+    {
+        $query = $this->db->query('DELETE FROM books WHERE id=$id');
+        return $query;
+    }
+
 }

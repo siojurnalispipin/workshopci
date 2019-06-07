@@ -6,6 +6,8 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = true;
 
 // Book REST API Routes
+$route['api/jsonbooks'] = 'api/bookcontroller/jsonbooks';
 $route['api/books'] = 'api/bookcontroller/books';
-$route['api/databuku'] = 'api/bookcontroller/databooks';
-$route['api/tambahbuku'] = 'api/bookcontroller/insertbooks';
+$route['api/addbooks'] = 'api/bookcontroller/addbooks';
+$route['api/updatebooks'] = 'api/bookcontroller/updatebooks';
+$route['api/deletebooks'] = 'api/bookcontroller/deletebooks';
