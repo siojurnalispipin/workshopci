@@ -29,7 +29,7 @@ class Book_model extends CI_Model
 
     public function deleteBook($id)
     {
-        $query = $this->db->query('DELETE FROM books WHERE id=$id');
+        $query = $this->db->delete('book', $id);
         return $query;
     }
 
