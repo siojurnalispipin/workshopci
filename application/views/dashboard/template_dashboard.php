@@ -17,7 +17,6 @@
         <?php $this->load->view('dashboard/_partials/main_footer');?>
     </div>
 
-
     <?php $this->load->view('dashboard/_partials/js');?>
 </body>
 

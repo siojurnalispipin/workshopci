@@ -3,9 +3,7 @@
         <div class="level-left">
             <div class="level-item">
                 <div class="title">Dashboard</div>
-                <div class="#show_data">
-
-                </div>
+                <p id="judul"></p>
             </div>
         </div>
         <div class="level-right">
@@ -175,3 +173,5 @@
         </div>
     </div>
 </main>
+
+<?php $this->load->view('dashboard/_partials/js');?>
