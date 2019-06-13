@@ -6,12 +6,17 @@
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
-    <div class="wrapper">
+    <div class="container is-desktop is-mobile">
         <?php $this->load->view('dashboard/_partials/main-header');?>
-        <?php $this->load->view('dashboard/_partials/main-sidebar');?>
-        <?php $this->load->view('dashboard/_partials/content');?>
-        <?php $this->load->view('dashboard/_partials/footer');?>
+        <div class="section">
+            <div class="columns">
+                <?php $this->load->view('dashboard/_partials/main-sidebar');?>
+                <?php $this->load->view('dashboard/_partials/main_content');?>
+            </div>
+        </div>
+        <?php $this->load->view('dashboard/_partials/main_footer');?>
     </div>
+
 
     <?php $this->load->view('dashboard/_partials/js');?>
 </body>
