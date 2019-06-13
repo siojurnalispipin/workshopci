@@ -11,7 +11,7 @@
         <div class="section">
             <div class="columns">
                 <?php $this->load->view('dashboard/_partials/main-sidebar');?>
-                <?php $this->load->view('dashboard/_partials/main_content');?>
+                <?php $this->load->view($view)?>
             </div>
         </div>
         <?php $this->load->view('dashboard/_partials/main_footer');?>
