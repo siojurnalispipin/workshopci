@@ -5,18 +5,18 @@
     <?php $this->load->view('dashboard/_partials/head');?>
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini">
-    <div class="container is-desktop is-mobile">
+<body>
+    <div class="container-scroller">
         <?php $this->load->view('dashboard/_partials/main-header');?>
-        <div class="section">
-            <div class="columns">
-                <?php $this->load->view('dashboard/_partials/main-sidebar');?>
+        <div class="container-fluid page-body-wrapper">
+            <?php $this->load->view('dashboard/_partials/main-sidebar');?>
+            <div class="main-panel">
                 <?php $this->load->view($view)?>
+
+                <?php $this->load->view('dashboard/_partials/main_footer');?>
             </div>
         </div>
-        <?php $this->load->view('dashboard/_partials/main_footer');?>
     </div>
-
     <?php $this->load->view('dashboard/_partials/js');?>
 </body>
 </html>
