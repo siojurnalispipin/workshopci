@@ -19,5 +19,4 @@
 
     <?php $this->load->view('dashboard/_partials/js');?>
 </body>
-
 </html>

@@ -29,7 +29,7 @@ $(document).ready(function () {
 			responsive: true,
 			language: {
 				search: "_INPUT_",
-				searchPlaceholder: "Search records",
+				searchPlaceholder: "Search Buku",
 			}
 		});
 	}
