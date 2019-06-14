@@ -177,13 +177,13 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Delete Product</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Hapus Buku</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <strong>Are you sure to delete this record?</strong>
+                        <strong>Apakah anda yakin ingin menghapus buku?</strong>
                     </div>
                     <div class="modal-footer">
                         <input type="hidden" name="id_delete" id="id_delete" class="form-control">

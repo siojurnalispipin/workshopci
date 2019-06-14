@@ -1,7 +1,16 @@
 $(document).ready(function () {
 	buku_populer();
 	daftar_buku();
-	$('#mydata').dataTable();
+	$('#mydata').dataTable({
+		"processing": true,
+		"aLengthMenu": [
+			[5, 10, 50],
+			[5, 10, 50]
+		],
+		"searching": false,
+		scrollY: 300,
+		paging: true
+	});
 
 	function buku_populer() {
 		$.ajax({
