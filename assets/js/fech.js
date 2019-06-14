@@ -18,9 +18,34 @@ $(document).ready(function () {
 		})
 	}
 
+
 	function tampil_tabel() {
 		// alert('hi');
 		return $('#mydata').DataTable({
+			"processing": true,
+			"serverSide": true,
+			"ajax": {
+				"url": "http://localhost/ci/api/book",
+				"type": "GET",
+				"dataSrc": 'data'
+			},
+			columns: [{
+					data: "id"
+				},
+				{
+					data: "judul"
+				},
+				{
+					data: "deskripsi"
+				},
+				{
+					data: "penulis"
+				},
+				{
+					data: "rating"
+				}
+			],
+
 			"pagingType": "full_numbers",
 			"lengthMenu": [
 				[10, 25, 50, -1],
