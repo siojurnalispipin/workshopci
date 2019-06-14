@@ -6,7 +6,8 @@
 <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dashboard/vendors/base/vendor.bundle.base.css">
 <!-- endinject -->
 <!-- plugin css for this page -->
-<link rel="stylesheet" href="<?php echo base_url(); ?>assets/dashboard/datatables.net-bs4/dataTables.bootstrap4.css">
+<link rel="stylesheet"
+    href="<?php echo base_url(); ?>assets/dashboard/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
 <!-- End plugin css for this page -->
 <!-- inject:css -->
 <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dashboard/css/style.css">

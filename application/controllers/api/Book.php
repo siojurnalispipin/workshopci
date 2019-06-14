@@ -47,17 +47,16 @@ class Book extends REST_Controller
         }
     }
 
-    public function index_put()
+    public function index_put($id)
     {
-        $id = $this->put('id');
         $data = array(
             'judul' => $this->put('judul'),
             'deskripsi' => $this->put('deskripsi'),
             'penulis' => $this->put('penulis'),
             'rating' => $this->put('rating'),
         );
-        $this->db->where('id', $id);
-        $put = $this->Book_model->updateBook($data);
+
+        $put = $this->Book_model->updateBook($data, $id);
         if ($put) {
             $this->response([
                 'status' => true,

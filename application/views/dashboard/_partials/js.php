@@ -1,10 +1,11 @@
   <!-- plugins:js -->
+  <script src="<?php echo base_url(); ?>assets/js/jquery-3.4.1.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/dashboard/vendors/base/vendor.bundle.base.js"></script>
   <!-- endinject -->
   <!-- Plugin js for this page-->
   <script src="<?php echo base_url(); ?>assets/dashboard/vendors/chart.js/Chart.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/dashboard/vendors/datatables.net/jquery.dataTables.js"></script>
-  <script src="<?php echo base_url(); ?>assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+  <script src="<?php echo base_url(); ?>assets/dashboard/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
   <!-- End plugin js for this page-->
   <!-- inject:js -->
   <script src="<?php echo base_url(); ?>assets/dashboard/js/off-canvas.js"></script>
