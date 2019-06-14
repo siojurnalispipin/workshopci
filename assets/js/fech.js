@@ -13,7 +13,26 @@ $(document).ready(function () {
 				'api-key': 'myKey'
 			},
 			success: function (data) {
-				$('#judul').text(data.data[0].judul);
+
+				var html = '';
+				var i;
+				for (i = 0; i < data.data.length; i++) {
+					html += '<tr>' +
+						'<td>' + data.data[i].id + '</td>' +
+						'<td>' + data.data[i].judul + '</td>' +
+						'<td>' + data.data[i].deskripsi + '</td>' +
+						'<td>' + data.data[i].penulis + '</td>' +
+						'<td>' + data.data[i].rating + '</td>' +
+						'<td style="text-align:right;">' +
+						'<a href="javascript:void(0);" class="btn btn-info btn-sm item_edit" data-product_code="' +
+						data.data[i].id + '" data-product_name="' + data.data[i].judul +
+						'" data-price="' + data.data[i].deskripsi + '">Edit</a>' + ' ' +
+						'<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-product_code="' +
+						data.data[i].id + '">Delete</a>' +
+						'</td>' +
+						'</tr>';
+				}
+				$('#show_data').html(html);
 			}
 		})
 	}
@@ -23,29 +42,6 @@ $(document).ready(function () {
 		// alert('hi');
 		return $('#mydata').DataTable({
 			"processing": true,
-			"serverSide": true,
-			"ajax": {
-				"url": "http://localhost/ci/api/book",
-				"type": "GET",
-				"dataSrc": 'data'
-			},
-			columns: [{
-					data: "id"
-				},
-				{
-					data: "judul"
-				},
-				{
-					data: "deskripsi"
-				},
-				{
-					data: "penulis"
-				},
-				{
-					data: "rating"
-				}
-			],
-
 			"pagingType": "full_numbers",
 			"lengthMenu": [
 				[10, 25, 50, -1],

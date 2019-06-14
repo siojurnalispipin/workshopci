@@ -3,7 +3,6 @@
         <div class="level-left">
             <div class="level-item">
                 <div class="title">Dashboard</div>
-                <p id="judul"></p>
             </div>
         </div>
         <div class="level-right">
