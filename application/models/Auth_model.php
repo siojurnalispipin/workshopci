@@ -17,7 +17,9 @@ class Auth_model extends CI_Model
 
     public function ceklogin($nama_pengguna, $kata_sandi)
     {
-        $query = $this->db->query("SELECT * FROM users WHERE username='$nama_pengguna' AND katasandi=MD5('$kata_sandi') LIMIT 1");
+        $this->db->where('username', $nama_pengguna);
+
+        $query = $this->db->get("users");
         return $query;
     }
 }
