@@ -14,4 +14,5 @@
     </div>
     <?php $this->load->view('auth/_partials/js');?>
 </body>
+
 </html>

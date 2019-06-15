@@ -59,6 +59,7 @@ class Auth extends REST_Controller
                     'ses_nama' => $data['username'],
                     'masuk' => true,
                 );
+                $this->session->set_userdata($data_admin);
 
                 $this->response([
                     'status' => true,
@@ -71,6 +72,7 @@ class Auth extends REST_Controller
                     'ses_nama' => $data['username'],
                     'masuk' => true,
                 );
+                $this->session->set_userdata($data_user);
 
                 $this->response([
                     'status' => true,

@@ -1,14 +1,11 @@
-$(document).ready(function () {
+$(document).ready(function() {
 	buku_populer();
 	daftar_buku();
 
-	$('#mydata').dataTable({
-		"processing": true,
-		"aLengthMenu": [
-			[5, 10, 50],
-			[5, 10, 50]
-		],
-		"searching": false,
+	$("#mydata").dataTable({
+		processing: true,
+		aLengthMenu: [[5, 10, 50], [5, 10, 50]],
+		searching: false,
 		scrollY: 300,
 		paging: true
 	});
@@ -19,51 +16,72 @@ $(document).ready(function () {
 			url: "http://localhost/ci/api/book",
 			async: true,
 			dataType: "json",
-			contentType: 'application/json',
+			contentType: "application/json",
 			headers: {
-				'api-key': 'myKey'
+				"api-key": "myKey"
 			},
-			success: function (data) {
-				$('#judulbuku').text(data.data[0].judul);
-				$('#rating').text(data.data[0].rating);
-				$('#deskripsi').text(data.data[0].deskripsi);
+			success: function(data) {
+				$("#judulbuku").text(data.data[0].judul);
+				$("#rating").text(data.data[0].rating);
+				$("#deskripsi").text(data.data[0].deskripsi);
 			}
 		});
 	}
 
 	function daftar_buku() {
 		$.ajax({
-			type: 'ajax',
-			url: 'http://localhost/ci/api/book',
+			type: "ajax",
+			url: "http://localhost/ci/api/book",
 			async: true,
-			dataType: 'json',
-			success: function (data) {
-				var html = '';
+			dataType: "json",
+			success: function(data) {
+				var html = "";
 				var i;
 				for (i = 0; i < data.data.length; i++) {
-					html += '<tr>' +
-						'<td>' + data.data[i].id + '</td>' +
-						'<td>' + data.data[i].judul + '</td>' +
-						'<td>' + data.data[i].penulis + '</td>' +
-						'<td>' + data.data[i].rating + '</td>' +
+					html +=
+						"<tr>" +
+						"<td>" +
+						data.data[i].id +
+						"</td>" +
+						"<td>" +
+						data.data[i].judul +
+						"</td>" +
+						"<td>" +
+						data.data[i].penulis +
+						"</td>" +
+						"<td>" +
+						data.data[i].rating +
+						"</td>" +
 						'<td style="text-align:right;">' +
-						'<a href="javascript:void(0);" class="btn btn-info btn-sm item_edit" data-id="' + data.data[i].id + '" data-judul="' + data.data[i].judul + '" data-deskripsi="' + data.data[i].deskripsi + '" data-penulis="' + data.data[i].penulis + '" data-rating="' + data.data[i].rating + '" >Edit</a>' + ' ' +
-						'<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id="' + data.data[i].id + '">Delete</a>' +
-						'</td>' +
-						'</tr>';
+						'<a href="javascript:void(0);" class="btn btn-info btn-sm item_edit" data-id="' +
+						data.data[i].id +
+						'" data-judul="' +
+						data.data[i].judul +
+						'" data-deskripsi="' +
+						data.data[i].deskripsi +
+						'" data-penulis="' +
+						data.data[i].penulis +
+						'" data-rating="' +
+						data.data[i].rating +
+						'" >Edit</a>' +
+						" " +
+						'<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id="' +
+						data.data[i].id +
+						'">Delete</a>' +
+						"</td>" +
+						"</tr>";
 				}
-				$('#show_data').html(html);
+				$("#show_data").html(html);
 			}
-
 		});
 	}
 
 	//Save product
-	$('#btn_save').on('click', function () {
-		var judul = $('#judul').val();
-		var deskripsi = $('#deskripsi').val();
-		var penulis = $('#penulis').val();
-		var rating = $('#rating').val();
+	$("#btn_save").on("click", function() {
+		var judul = $("#judul").val();
+		var deskripsi = $("#deskripsi").val();
+		var penulis = $("#penulis").val();
+		var rating = $("#rating").val();
 		$.ajax({
 			type: "POST",
 			url: "http://localhost/ci/api/book",
@@ -74,12 +92,12 @@ $(document).ready(function () {
 				penulis: penulis,
 				rating: rating
 			},
-			success: function (data) {
+			success: function(data) {
 				$('[name="judul"]').val("");
 				$('[name="deskripsi"]').val("");
 				$('[name="penulis"]').val("");
 				$('[name="rating"]').val("");
-				$('#Modal_Add').modal('hide');
+				$("#Modal_Add").modal("hide");
 				daftar_buku();
 			}
 		});
@@ -87,14 +105,14 @@ $(document).ready(function () {
 	});
 
 	//get data for update record
-	$('#show_data').on('click', '.item_edit', function () {
-		var id = $(this).data('id');
-		var judul = $(this).data('judul');
-		var penulis = $(this).data('penulis');
-		var deskripsi = $(this).data('deskripsi');
-		var rating = $(this).data('rating');
+	$("#show_data").on("click", ".item_edit", function() {
+		var id = $(this).data("id");
+		var judul = $(this).data("judul");
+		var penulis = $(this).data("penulis");
+		var deskripsi = $(this).data("deskripsi");
+		var rating = $(this).data("rating");
 
-		$('#Modal_Edit').modal('show');
+		$("#Modal_Edit").modal("show");
 		$('[name="id_edit"]').val(id);
 		$('[name="judul_edit"]').val(judul);
 		$('[name="penulis_edit"]').val(penulis);
@@ -103,12 +121,12 @@ $(document).ready(function () {
 	});
 
 	//update record to database
-	$('#btn_update').on('click', function () {
-		var id = $('#id_edit').val();
-		var judul = $('#judul_edit').val();
-		var deskripsi = $('#deskripsi_edit').val();
-		var penulis = $('#penulis_edit').val();
-		var rating = $('#rating_edit').val();
+	$("#btn_update").on("click", function() {
+		var id = $("#id_edit").val();
+		var judul = $("#judul_edit").val();
+		var deskripsi = $("#deskripsi_edit").val();
+		var penulis = $("#penulis_edit").val();
+		var rating = $("#rating_edit").val();
 		$.ajax({
 			type: "PUT",
 			url: "http://localhost/ci/api/book/" + id,
@@ -119,13 +137,13 @@ $(document).ready(function () {
 				penulis: penulis,
 				rating: rating
 			},
-			success: function (data) {
+			success: function(data) {
 				$('[name="id_edit"]').val("");
 				$('[name="judul_edit"]').val("");
 				$('[name="deskripsi_edit"]').val("");
 				$('[name="penulis_edit"]').val("");
 				$('[name="rating_edit"]').val("");
-				$('#Modal_Edit').modal('hide');
+				$("#Modal_Edit").modal("hide");
 				daftar_buku();
 			}
 		});
@@ -133,23 +151,23 @@ $(document).ready(function () {
 	});
 
 	//get data for delete record
-	$('#show_data').on('click', '.item_delete', function () {
-		var id = $(this).data('id');
+	$("#show_data").on("click", ".item_delete", function() {
+		var id = $(this).data("id");
 
-		$('#Modal_Delete').modal('show');
+		$("#Modal_Delete").modal("show");
 		$('[name="id_delete"]').val(id);
 	});
 
 	//delete record to database
-	$('#btn_delete').on('click', function () {
-		var id = $('#id_delete').val();
+	$("#btn_delete").on("click", function() {
+		var id = $("#id_delete").val();
 		$.ajax({
 			type: "DELETE",
 			url: "http://localhost/ci/api/book/" + id,
 			dataType: "JSON",
-			success: function (data) {
+			success: function(data) {
 				$('[name="id_delete"]').val("");
-				$('#Modal_Delete').modal('hide');
+				$("#Modal_Delete").modal("hide");
 				daftar_buku();
 			}
 		});
@@ -157,25 +175,25 @@ $(document).ready(function () {
 	});
 
 	//login to database
-	$('#btn_login').on('click', function () {
-		var username = $('#username').val();
-		var password = $('#password').val();
+	$("#btn_login").on("click", function(e) {
+		e.preventDefault();
+		var username = $("#username").val();
+		var password = $("#password").val();
 		$.ajax({
 			type: "POST",
 			url: "http://localhost/ci/api/auth/login",
 			dataType: "JSON",
 			data: {
 				username: username,
-				katasandi: password,
+				katasandi: password
 			},
-			success: function (data) {
+			success: function(data) {
 				$('[name="username"]').val("");
 				$('[name="password"]').val("");
 				console.log(data);
-				daftar_buku();
+				window.location.href = "http://localhost/ci/dashboard";
 			}
 		});
 		return false;
 	});
-
 });

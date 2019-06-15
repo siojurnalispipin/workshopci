@@ -23,7 +23,7 @@
                     <button type="button" class="btn btn-light bg-white btn-icon mr-3 mt-2 mt-xl-0">
                         <i class="mdi mdi-plus text-muted"></i>
                     </button>
-                    <button class="btn btn-primary mt-2 mt-xl-0">Download report</button>
+                    <button class="btn btn-primary mt-2 mt-xl-0"> <?=$this->session->userdata('ses_nama');?></button>
                 </div>
             </div>
         </div>
