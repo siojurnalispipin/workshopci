@@ -1,6 +1,7 @@
 $(document).ready(function () {
 	buku_populer();
 	daftar_buku();
+
 	$('#mydata').dataTable({
 		"processing": true,
 		"aLengthMenu": [
@@ -149,6 +150,28 @@ $(document).ready(function () {
 			success: function (data) {
 				$('[name="id_delete"]').val("");
 				$('#Modal_Delete').modal('hide');
+				daftar_buku();
+			}
+		});
+		return false;
+	});
+
+	//login to database
+	$('#btn_login').on('click', function () {
+		var username = $('#username').val();
+		var password = $('#password').val();
+		$.ajax({
+			type: "POST",
+			url: "http://localhost/ci/api/auth/login",
+			dataType: "JSON",
+			data: {
+				username: username,
+				katasandi: password,
+			},
+			success: function (data) {
+				$('[name="username"]').val("");
+				$('[name="password"]').val("");
+				console.log(data);
 				daftar_buku();
 			}
 		});
