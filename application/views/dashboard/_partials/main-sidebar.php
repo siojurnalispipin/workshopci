@@ -6,6 +6,7 @@
                 <span class="menu-title">Dashboard</span>
             </a>
         </li>
+        <?php if ($this->session->userdata('akses') == '0') {?>
         <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <i class="mdi mdi-circle-outline menu-icon"></i>
@@ -20,11 +21,16 @@
                 </ul>
             </div>
         </li>
+
+        <?php } else {?>
         <li class="nav-item">
             <a class="nav-link" href="pages/forms/basic_elements.html">
                 <i class="mdi mdi-view-headline menu-icon"></i>
                 <span class="menu-title">Dokumentasi</span>
             </a>
         </li>
+        <?php }?>
+
+
     </ul>
 </nav>
