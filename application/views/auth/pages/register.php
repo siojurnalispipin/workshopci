@@ -17,16 +17,6 @@
                             placeholder="Email">
                     </div>
                     <div class="form-group">
-                        <select class="form-control form-control-lg" id="exampleFormControlSelect2">
-                            <option>Country</option>
-                            <option>United States of America</option>
-                            <option>United Kingdom</option>
-                            <option>India</option>
-                            <option>Germany</option>
-                            <option>Argentina</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
                         <input type="password" class="form-control form-control-lg" id="exampleInputPassword1"
                             placeholder="Password">
                     </div>
